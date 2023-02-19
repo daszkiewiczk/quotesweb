@@ -7,7 +7,10 @@ metadata:
     sandbox: learn-kubernetes
     learn-kubernetes: quotesweb
 spec:
-  replicas: 1
+  replicas: 2
+  strategy:
+    type: Recreate
+    rollingUpdate: null
   selector:
     matchLabels:
       app: quotesweb
@@ -18,7 +21,7 @@ spec:
     spec:
       containers:
         - name: quotes
-          image: quay.io/donschenck/quotesweb:v1
+          image: docker.io/daszkiewiczk/quotesweb:v2
           imagePullPolicy: Always
           ports:
             - containerPort: 3000

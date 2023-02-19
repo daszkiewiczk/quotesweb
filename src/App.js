@@ -26,7 +26,7 @@ class App extends Component {
                 <div>Hostname: <strong>{this.state.quote.hostname}</strong></div>
                 <h3>"{this.state.quote.quotation}"</h3> -- {this.state.quote.author}
             </div>                <br/>
-                <input name="URL" placeholder="Quotes service URL goes here" type="text" style={{width: 800}} onChange={this.handleURL} />
+                <input name="URL" placeholder="Henlo Quotes service URL goes here" type="text" style={{width: 800}} onChange={this.handleURL} />
                 <br/>
                 <p><button id='pictureButton' className='Button' onClick={this.start}>Start</button></p>             
               </div>
@@ -39,7 +39,7 @@ class App extends Component {
 
   getData = () => {
     try {
-        fetch(window.quotesURL)
+        fetch("http://quotes-daszkiewiczk-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/quotes/random")
         .then(response => response.json())
             .then(data => {
                 this.setState({quote:data});
